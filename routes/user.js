@@ -4,8 +4,10 @@ const users=require("../models/Users");
 const bcrypt=require("bcrypt");
 router.post("/login",async (req,res)=>{
     try{
-    res.cookie("name","",{httpOnly:true,expires:null});
-    res.cookie("isAdmin",false,{httpOnly:true,expires:null});
+    res.cookie("name","",{httpOnly:true,expires:null,  sameSite: 'None',  // Allows the cookie to be sent in all cross-site contexts
+});
+    res.cookie("isAdmin",false,{httpOnly:true,expires:null,  sameSite: 'None',  // Allows the cookie to be sent in all cross-site contexts
+});
     let user=await users.findOne({email:req.body.email}).exec();
     if(!user)
         return res.status(300).send("Account not found ... bad request");
@@ -18,8 +20,10 @@ router.post("/login",async (req,res)=>{
     if(token==-1)
         return res.status(500).send("Internal error , will be solved soon !");
     console.log("Hi");
-    res.cookie("name",user.name,{httpOnly:true,expires:null});
-    res.cookie("isAdmin",user.isAdmin,{httpOnly:true,expires:null});
+    res.cookie("name",user.name,{httpOnly:true,expires:null,  sameSite: 'None',  // Allows the cookie to be sent in all cross-site contexts
+});
+    res.cookie("isAdmin",user.isAdmin,{httpOnly:true,expires:null,  sameSite: 'None',  // Allows the cookie to be sent in all cross-site contexts
+});
     res.header("x-authentication-token",token);
     res.header('Access-Control-Expose-Headers', 'Authorization, x-authentication-token'); // Expose custom headers
     res.status(200).send("User SignedIn Successfully");

@@ -19,7 +19,8 @@ const register=async (req,res)=>{
         if(token==-1)
            return res.status(500).send("Internal Server error !");
         console.log("What");
-        res.cookie("token",token,{httpOnly:true,expires:null});
+        res.cookie("token",token,{httpOnly:true,expires:null,  sameSite: 'None',  // Allows the cookie to be sent in all cross-site contexts
+        });
         res.header("x-authentication-token",token);
         res.status(200).send("User Registered Successfully");
     }).catch((err)=>console.log(err))
