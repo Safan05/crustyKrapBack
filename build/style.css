@@ -1,0 +1,117 @@
+.navbar-toggler {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    transition: 0.5s ease-in-out;
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+    border-radius: 1rem;
+}
+
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+    border: 0;
+}
+
+.navbar-toggler span {
+    margin: 0;
+    padding: 0;
+}
+
+.toggler-icon {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #FFFFFF; /* White color for the toggler lines */
+    border-radius: 10px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+}
+
+.middle-bar {
+    margin-top: 0px;
+}
+
+
+.navbar-toggler .top-bar {
+    transform: rotate(135deg);
+    margin-top: 0px;
+}
+
+.navbar-toggler .btm-bar {
+    transform: rotate(-135deg);
+    margin-top: 0px;
+}
+
+.navbar-toggler .mid-bar {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+
+.navbar-toggler.collapsed .top-bar {
+    transform: rotate(0deg);
+    margin-bottom: 20px;
+}
+
+.navbar-toggler.collapsed .btm-bar {
+    transform: rotate(0deg);
+    margin-top: 20px;
+}
+
+.navbar-toggler.collapsed .mid-bar {
+    opacity: 1;
+    filter: alpha(opacity=1);
+}
+
+.navbar-toggler-icon {
+    background-image: none; /* Hide the default icon */
+}
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+    }
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    .card-registration .select-arrow {
+    top: 13px;
+    }
+    
+    .gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #a1c4fd;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(161, 196, 253, 1), rgba(194, 233, 251, 1));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(161, 196, 253, 1), rgba(194, 233, 251, 1))
+    }
+    
+    .bg-indigo {
+    background-color: #4835d4;
+    }
+    @media (min-width: 992px) {
+    .card-registration-2 .bg-indigo {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    }
+    }
+    @media (max-width: 991px) {
+    .card-registration-2 .bg-indigo {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    }
+    }
