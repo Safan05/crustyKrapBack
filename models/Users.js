@@ -2,6 +2,8 @@ const mongoose=require("mongoose");
 const valid=require("validator");
 const config=require("config");
 const jwt = require("jsonwebtoken");
+require('dotenv').config();
+const jwtSecret = process.env.JWTSECVAR;
 const schema = new mongoose.Schema({
     name:{
         type:String,
@@ -25,9 +27,9 @@ const schema = new mongoose.Schema({
     }
 })
 schema.method("CreateToken",function(){
-if(!config.get("jwtsec"))
+if(!jwtSecret)
     return -1;
-const token=jwt.sign({_id:this._id,Admin:this.isAdmin},config.get("jwtsec"));
+const token=jwt.sign({_id:this._id,Admin:this.isAdmin},jwtSecret);
 return token;
 })
 module.exports=mongoose.model("Users",schema)

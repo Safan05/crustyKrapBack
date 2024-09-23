@@ -19,10 +19,10 @@ res.status(500).send("500 Internal Server Error");
 
 const addData=async (req,res)=>{
     try{
-    console.log("posting...");
     const d=await data.find().sort({"id":-1}).limit(1)
-    console.log(d[0].id);
-    const id=d[0].id+1;
+    let id=1;
+    if(d[0])
+     id=d[0].id+1;
     const item={
         name:req.body.name,
         price:req.body.price,

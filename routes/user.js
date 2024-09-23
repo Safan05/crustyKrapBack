@@ -30,5 +30,5 @@ catch(err){
 }
 })
 const controller=require("../controllers/Users");        
-router.post("/",controller.register);
+router.post("/register",controller.register);
 module.exports=router;

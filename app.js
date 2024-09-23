@@ -8,6 +8,8 @@ const menu=require("./routes/Menu");
 const admin=require("./routes/Admin");
 const path = require('path');
 const userRouter=require("./routes/user");
+require('dotenv').config();
+const mongolink = process.env.MONGODB;
 process.on("uncaughtException",(exception)=>{console.log("Exception !")});  // used to handle any sync exception that may happen
 process.on("unhandledRejection",(exception)=>{console.log("Rejection !")});  // used to handle any asyn rejection that may happen
 app.use(cors({
@@ -31,6 +33,6 @@ app.get("/cookies",(req,res)=>{
 app.get("*",(req,res)=>{
     res.sendFile(path.join(__dirname,'build','index.html'));
 })
-mongoose.connect("mongodb://localhost:27017/Restu").then(()=>console.log("Database connected...")).catch((err)=>console.log(err));
+mongoose.connect(mongolink).then(()=>console.log("Database connected...")).catch((err)=>console.log(err));
 const port = process.env.port||3000;
 app.listen(port,()=>{console.log(`listening to port ${port}`)});
