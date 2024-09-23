@@ -9,6 +9,7 @@ const admin=require("./routes/Admin");
 const path = require('path');
 const userRouter=require("./routes/user");
 require('dotenv').config();
+const password = encodeURIComponent("<password>");
 const mongolink = process.env.MONGODB;
 process.on("uncaughtException",(exception)=>{console.log("Exception !")});  // used to handle any sync exception that may happen
 process.on("unhandledRejection",(exception)=>{console.log("Rejection !")});  // used to handle any asyn rejection that may happen
@@ -33,6 +34,7 @@ app.get("/cookies",(req,res)=>{
 app.get("*",(req,res)=>{
     res.sendFile(path.join(__dirname,'build','index.html'));
 })
+console.log(mongolink);
 mongoose.connect(mongolink).then(()=>console.log("Database connected...")).catch((err)=>console.log(err));
 const port = process.env.port||3000;
 app.listen(port,()=>{console.log(`listening to port ${port}`)});
