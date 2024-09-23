@@ -14,7 +14,7 @@ const mongolink = process.env.MONGODB;
 process.on("uncaughtException",(exception)=>{console.log("Exception !")});  // used to handle any sync exception that may happen
 process.on("unhandledRejection",(exception)=>{console.log("Rejection !")});  // used to handle any asyn rejection that may happen
 app.use(cors({
-    origin: 'https://crusty-krap.vercel.app/',  // Frontend running on localhost:3000
+    origin: 'https://crusty-krap.vercel.app',  // Frontend running on localhost:3000
     credentials: true,                // Allow cookies or authorization headers
   }));
 app.use(express.static(path.join(__dirname, 'build')));
